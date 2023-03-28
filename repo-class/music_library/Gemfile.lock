@@ -1,0 +1,19 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    chronic_duration (0.10.6)
+      numerizer (~> 0.1.1)
+    numerizer (0.1.1)
+    pg (1.4.6)
+    spec (5.3.4)
+      chronic_duration (~> 0.10.2)
+
+PLATFORMS
+  arm64-darwin-22
+
+DEPENDENCIES
+  pg (~> 1.4)
+  spec (~> 5.3)
+
+BUNDLED WITH
+   2.4.9
