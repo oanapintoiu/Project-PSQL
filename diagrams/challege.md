@@ -25,16 +25,16 @@ sequenceDiagram
     t->>app: Runs `ruby app.rb`
     app->>db_conn: Opens connection to database by calling 'connect' method on DatabaseConnection
     db_conn->>db_conn: Opens database connection using PG and stores the connection
-    app->>ar: Calls 'all' method on BookRepository
+    app->>ar: Calls 'all' method on BooksRepository
     ar->>db_conn: Sends SQL query by calling 'exec params' method on DatabaseConnection
     db_conn->>db: Sends query to database via the open database connection
     db->>db_conn: Returns an array of hashes, one for each row of the books table
 
     db_conn->>ar: Returns an array of hashes, one for each row of the books table
     loop 
-        ar->>ar: Loops through ____ and creates a ____ object for every row
+        ar->>ar: Loops through array and creates a Book object for every row
     end
-    ar->>app: Returns ____ of ____ objects
-    app->>t: Prints list of ____ to terminal
+    ar->>app: Returns array of Book objects
+    app->>t: Prints list of books to terminal
 
 ```
