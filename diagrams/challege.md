@@ -17,12 +17,12 @@ sequenceDiagram
     participant t as terminal
     participant app as Main program (in app.rb)
     participant ar as BooksRepository class <br /> (in lib/books_repository.rb)
-    participant db_conn as ____ class in (in lib/____.rb)
+    participant db_conn as DatabaseConnection class in (in lib/database_connection.rb)
     participant db as Postgres database
 
     Note left of t: Flow of time <br />⬇ <br /> ⬇ <br /> ⬇ 
 
-    t->>app: Runs `ruby ____`
+    t->>app: Runs `ruby app.rb`
     app->>db_conn: Opens connection to database by calling ____ method on ____
     db_conn->>db_conn: Opens database connection using PG and stores the connection
     app->>ar: Calls ____ method on ____
