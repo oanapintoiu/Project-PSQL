@@ -16,7 +16,7 @@ You can create these diagrams in the diagramming tool of your choice but a nice 
 sequenceDiagram
     participant t as terminal
     participant app as Main program (in app.rb)
-    participant ar as ____ class <br /> (in lib/____.rb)
+    participant ar as BooksRepository class <br /> (in lib/books_repository.rb)
     participant db_conn as ____ class in (in lib/____.rb)
     participant db as Postgres database
 
