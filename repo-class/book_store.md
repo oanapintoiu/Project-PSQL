@@ -33,31 +33,32 @@ psql -h 127.0.0.1 music_library_test < seeds_artists.sql
 Usually, the Model class name will be the capitalised table name (single instead of plural). The same name is then suffixed by Repository for the Repository class name.
 
 # EXAMPLE
-# Table name: albums
+# Table name: books
 
 # Model class
-# (in lib/album.rb)
-class Artist
+# (in lib/books.rb)
+class Book
 end
 
 # Repository class
-# (in lib/albums_repository.rb)
-class ArtistRepository
+# (in lib/books_repository.rb)
+
+class BooksRepository
 end
 
 4. Implement the Model class
 Define the attributes of your Model class. You can usually map the table columns to the attributes of the class, including primary and foreign keys.
 
 # EXAMPLE
-# Table name: album
+# Table name: books
 
 # Model class
-# (in lib/album.rb)
+# (in lib/books.rb)
 
-class Artist
+class Book
 
   # Replace the attributes by your own columns.
-  attr_accessor :id, :title, :release_year, :artist_id
+  attr_accessor :id, :title, :author_name
 end
 
 
@@ -68,21 +69,21 @@ Your Repository class will need to implement methods for each "read" or "write" 
 Using comments, define the method signatures (arguments and return value) and what they do - write up the SQL queries that will be used by each method.
 
 # EXAMPLE
-# Table name: albums
+# Table name: books
 
 # Repository class
-# (in lib/albums_repository.rb)
+# (in lib/books_repository.rb)
 
-class ArtistRepository
+class BookRepository
 
   # Selecting all records
   # No arguments
 
   def all
     # Executes the SQL query:
-    # 'SELECT id, title, release_year, artist_id FROM albums;
+    # 'SELECT id, title, author_name FROM books;
 
-    # Returns an array of Artist objects.
+    # Returns an array of Book objects.
   end
 end
 
@@ -95,16 +96,18 @@ These examples will later be encoded as RSpec tests.
 # EXAMPLES
 
 # 1
-# Get all artists
+# Get all books
 
-repo = ArtistRepository.new
+repo = BookRepository.new
 
-albums = repo.all
- expect(albums.length).to eq(2)
-    expect(albums.first.artist_id).to eq('1')
-    expect(albums.first.title).to eq 'Songs for Littles'
-    expect(albums.first.release_year).to eq '2020'
-Encode this example as a test.
+books = repo.all
+
+books = repo.all
+books.lenght => 5
+books.first.id => 1
+books.first.title => 'Nineteen Eighty-Four'
+books.last.titel => 'The Age of Innocence'
+books.first.author_name => George Orwell
 
 
 7. Reload the SQL seeds before each test run
@@ -116,14 +119,14 @@ This is so you get a fresh table contents every time you run the test suite.
 
 # file: spec/student_repository_spec.rb
 
-def reset_albums_table
-  seed_sql = File.read('spec/seeds_albumss.sql')
-  connection = PG.connect({ host: '127.0.0.1', dbname: 'music_library_test2' })
+def reset_books_table
+  seed_sql = File.read('spec/seeds_books.sql')
+  connection = PG.connect({ host: '127.0.0.1', dbname: 'book_store' })
   connection.exec(seed_sql)
 end
 
   before(:each) do 
-    reset_albums_table
+    reset_books_table
   end
 
   # (your tests will go here).
