@@ -26,7 +26,7 @@ sequenceDiagram
     app->>db_conn: Opens connection to database by calling 'connect' method on DatabaseConnection
     db_conn->>db_conn: Opens database connection using PG and stores the connection
     app->>ar: Calls 'all' method on BooksRepository
-    ar->>db_conn: Sends SQL query by calling 'exec params' method on DatabaseConnection
+    ar->>db_conn: Sends SQL query by calling 'exec_params' method on DatabaseConnection
     db_conn->>db: Sends query to database via the open database connection
     db->>db_conn: Returns an array of hashes, one for each row of the books table
 
