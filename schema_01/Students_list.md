@@ -54,7 +54,7 @@ release_year: int
 
 4. Write the SQL.
 -- EXAMPLE
--- file: students_table.sql
+-- file: students_directory.sql
 
 -- Replace the table name, columm names and types.
 
