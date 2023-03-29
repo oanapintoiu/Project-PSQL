@@ -89,6 +89,15 @@ class ArtistRepository
 
     # Returns an array of Artist objects.
   end
+
+  # Select a single record
+  # Given the id in an argument(a number)
+
+  def find(id)
+# Executes the SQL query
+# SELECT if, name, genre FROM artists WHERE id = 1$
+
+# Returns a single Artist object 
 end
 
 6. Write Test Examples
@@ -106,7 +115,14 @@ repo = ArtistRepository.new
 artists = repo.all
 artists.length # => 2
 artists.first.id => 1
-artists.first.name => 'Pixies'
+artists.first.name => 'Ms Rachel'
+Encode this example as a test.
+
+repo = ArtistRepository.new
+
+artists = repo.find(2)
+artists.genre # => children songs
+artists.name => 'Ms Rachel'
 Encode this example as a test.
 
 7. Reload the SQL seeds before each test run

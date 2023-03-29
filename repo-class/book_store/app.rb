@@ -7,5 +7,5 @@ DatabaseConnection.connect('book_store')
 repo = BookRepository.new
 
 repo.all.each do |books|
-puts "#{books.id} - #{books.title} - #{books.author_name}"
+  puts "#{books.id} - #{books.title} - #{books.author_name}"
 end

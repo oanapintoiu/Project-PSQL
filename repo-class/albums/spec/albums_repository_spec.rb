@@ -21,12 +21,4 @@ RSpec.describe AlbumRepository do
     expect(albums.first.title).to eq 'Songs for Littles'
     expect(albums.first.release_year).to eq '2020'
   end
-
-  it 'returns album by id' do
-    repo = AlbumRepository.new
-    albums = repo.find(2)
-    expect(albums.title).to eq 'Desperado'
-    expect(albums.release_year).to eq '1995'
-
-  end
 end

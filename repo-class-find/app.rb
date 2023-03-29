@@ -8,13 +8,12 @@ DatabaseConnection.connect('music_library_test')
 # artist_repository = ArtistRepository.new
 albums_repository = AlbumRepository.new
 
-
 p albums_repository.find(1)
 
 # artist_repository.find.each. do |artist|
 #     p artist
 # end
 
- albums_repository.all.each do |album|
-    p album
- end
+albums_repository.all.each do |album|
+  p album
+end

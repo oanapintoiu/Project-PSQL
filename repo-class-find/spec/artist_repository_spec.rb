@@ -20,4 +20,12 @@ RSpec.describe ArtistRepository do
     expect(artists.first.id).to eq('1')
     expect(artists.first.name).to eq 'Ms Rachel'
   end
+  
+    it 'returns single artist' do
+    repo = ArtistRepository.new
+
+    artists = repo.find(1)
+    expect(artists.genre).to eq 'children songs'
+    expect(artists.name).to eq 'Ms Rachel'
+  end
 end
